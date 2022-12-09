@@ -12,6 +12,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="303dp"
         android:text="Sending"
+        app:layout_constraintBottom_toTopOf="@+id/receiving"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
@@ -25,6 +26,18 @@
         android:text="Receiving"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <EditText
+        android:id="@+id/editTextTextPersonName"
+        android:layout_width="241dp"
+        android:layout_height="51dp"
+        android:layout_marginTop="248dp"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:text="Sending or Receiving Files?"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 </androidx.constraintlayout.widget.ConstraintLayout>

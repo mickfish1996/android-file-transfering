@@ -1,16 +1,20 @@
 package com.example.phone_file_transfering;
-import static androidx.core.app.ActivityCompat.startActivityForResult;
 
+
+
+import static androidx.activity.result.ActivityResultCallerKt.registerForActivityResult;
+
+import android.app.Activity;
 import android.content.Intent;
+import android.net.Uri;
 
+import androidx.activity.result.ActivityResult;
+import androidx.activity.result.ActivityResultCallback;
+import androidx.activity.result.ActivityResultLauncher;
 import androidx.activity.result.contract.ActivityResultContracts;
 
 import java.net.*;
 import java.io.*;
-
-import javax.swing.*;
-
-
 import java.util.*;
 
 
@@ -20,16 +24,9 @@ public class Sending{
     private static int port = 6066;
 
 
-    public void startServer() throws IOException
+    public void startServer(File selected) throws IOException
     {
-        //int fileName = Integer.parseInt(JOptionPane.showInputDialog("Enter file name: "));
-        JFileChooser filechoose = new JFileChooser();
-        filechoose.setCurrentDirectory(new File(System.getProperty("user.home")));
-        int result = filechoose.showOpenDialog(null);
-
-        File selected = new File("");
-
-        fileChooser();
+        Send send;
 
         serverSock = new ServerSocket(port);
 
@@ -55,22 +52,10 @@ public class Sending{
         serverSock.close();
     }
 
-    public void start() throws IOException
+    public void start(File file) throws IOException
     {
-        startServer();
+        startServer(file);
     }
 
-    private void fileChooser()
-    {
-        Intent intent = new Intent(Intent.ACTION_OPEN_DOCUMENT_TREE);
-
-        startActivityForResult(ActivityResultContracts.OpenDocumentTree, intent, 1);
-    }
-
-    @Override
-    public void onActivityResult(Intent intent, int requestCode, File file)
-    {
-
-    }
 
 }
